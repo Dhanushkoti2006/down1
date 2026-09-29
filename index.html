@@ -3,59 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Study Materials</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* ================= LOGIN BOX ================= */
+
+        #loginPage {
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        #loginPage h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        #loginPage p {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .lock-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        #secretCode {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+        #secretCode:focus {
+            border-color: #667eea;
+        }
+
+        #loginBtn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #loginBtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        #errorMessage {
+            color: #e53935;
+            margin-top: 15px;
+            display: none;
+            font-size: 14px;
+        }
+
+        /* ================= CONTENT PAGE ================= */
+
+        #contentPage {
+            display: none;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .container {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #777;
+        }
+
+        /* ================= PDF CARDS ================= */
+
+        .manual-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .manual {
+            text-decoration: none;
+            background: #f7f7ff;
+            border: 1px solid #e5e5ff;
+            padding: 18px;
+            border-radius: 12px;
+            color: #333;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+        }
+
+        .manual:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .pdf-icon {
+            font-size: 25px;
+        }
+
+        /* ================= LOGOUT ================= */
+
+        #logoutBtn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #e53935;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #logoutBtn:hover {
+            background: #c62828;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 500px) {
+
+            #loginPage {
+                padding: 30px 20px;
+            }
+
+            .container {
+                padding: 25px 15px;
+            }
+
+            .header h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <H1>HELLO</H1>
-    <a href="DSA_lab_manual[1].pdf" download>
-        dsa manual
-      </a>
-    <br>
-    <a href="ACS302_Cloud_Lab_Manual.pdf" download>
-         cc manual
-      </a>
-    <br>
-     <a href="cnlab.pdf" download>
-         cn manual
-      </a>
-    <br>
-     <a href="uiuxlab.pdf" download>
-         uiux manual
-      </a><br>
-     <a href="smmlab.pdf" download>
-         smm manual
-      </a>
-    
-    <br>
-    
-    <a href="cyber.pdf" download>
-         cyber manual
-      </a><br>
-     
-     <a href="smm.pdf" download>
-         smm short
-      </a><br>
-<a href="AAI302-ML LAB.pdf" download>
-         ml manual
-      </a><br>
-    
-<a href="SEO_MANUAL.pdf" download>
-         seo manual
-      </a><br>
 
-    <a href="AIT301 -CNS LAB RECORD REVISED..pdf " download>
-         cns manual
-      </a><br>
+    <!-- ================= SECRET CODE PAGE ================= -->
 
-    
+    <div id="loginPage">
 
-    <a href="PDD LAB MANUAL FINAL.pdf " download>
-         pdd manual
-      </a><br>
-    <a href="SEO  LAB MANUAL THIRD YEAR-1.pdf " download>
-         seo1 manual
-      </a><br>
+        <div class="lock-icon">🔐</div>
+
+        <h1>Private Access</h1>
+
+        <p>Enter the secret code to access the study materials.</p>
+
+        <input
+            type="password"
+            id="secretCode"
+            placeholder="Enter secret code"
+        >
+
+        <button id="loginBtn" onclick="checkCode()">
+            Access Materials
+        </button>
+
+        <p id="errorMessage">
+            ❌ Incorrect secret code. Try again.
+        </p>
+
+    </div>
+
+
+    <!-- ================= CONTENT PAGE ================= -->
+
+    <div id="contentPage">
+
+        <div class="container">
+
+            <div class="header">
+                <h1>📚 Study Materials</h1>
+                <p>Access your lab manuals and study resources</p>
+            </div>
+
+
+            <div class="manual-list">
+
+                <a class="manual" href="DSA_lab_manual[1].pdf" download>
+                    <span class="pdf-icon">📕</span>
+                    DSA Manual
+                </a>
+
+                <a class="manual" href="ACS302_Cloud_Lab_Manual.pdf" download>
+                    <span class="pdf-icon">📕</span>
+                    Cloud Computing Manual
+                </a>
+
+                <a class="manual" href="cnlab.pdf" download>
+                    <span class="pdf-icon">📕</span>
+                    Computer Networks Manual
+                </a>
+
+                <a class="manual" href="uiuxlab.pdf" download>
+                    <span class="pdf-icon">📕</span>
+                    UI/UX Manual
+                </a>
+
+                <a class="manual" href="smmlab.pdf" download>
+                    <span class="pdf-icon">📕</span>
+                    SMM Manual
+                </a>
+
+                <a class="manual" href="cyber.pdf" download>
+                    <span class="pdf-icon">📕</span>
+                    Cyber Security Manual
+                </a>
+
+                <a class="manual" href="smm.pdf" download>
+                    <span class="pdf-icon">📕</span>
+                    SMM Short Notes
+                </a>
+
+                <a class="manual" href="AAI302-ML LAB.pdf" download>
+                    <span class="pdf-icon">📕</span>
+                    Machine Learning Manual
+                </a>
+
+                <a class="manual" href="SEO_MANUAL.pdf" download>
+                    <span class="pdf-icon">📕</span>
+                    SEO Manual
+                </a>
+
+                <a class="manual" href="AIT301 -CNS LAB RECORD REVISED..pdf" download>
+                    <span class="pdf-icon">📕</span>
+                    CNS Manual
+                </a>
+
+                <a class="manual" href="PDD LAB MANUAL FINAL.pdf" download>
+                    <span class="pdf-icon">📕</span>
+                    PDD Manual
+                </a>
+
+                <a class="manual" href="SEO  LAB MANUAL THIRD YEAR-1.pdf" download>
+                    <span class="pdf-icon">📕</span>
+                    SEO 1 Manual
+                </a>
+
+            </div>
+
+
+            <button id="logoutBtn" onclick="logout()">
+                🔒 Lock Page
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        // CHANGE YOUR SECRET CODE HERE
+        const SECRET_CODE = "manualkudra";
+
+
+        function checkCode() {
+
+            const enteredCode =
+                document.getElementById("secretCode").value;
+
+            const errorMessage =
+                document.getElementById("errorMessage");
+
+            if (enteredCode === SECRET_CODE) {
+
+                // Hide login page
+                document.getElementById("loginPage").style.display = "none";
+
+                // Show content
+                document.getElementById("contentPage").style.display = "block";
+
+                // Save login status
+                sessionStorage.setItem("authenticated", "true");
+
+            } else {
+
+                errorMessage.style.display = "block";
+
+                document.getElementById("secretCode").value = "";
+
+            }
+        }
+
+
+        function logout() {
+
+            sessionStorage.removeItem("authenticated");
+
+            document.getElementById("contentPage").style.display = "none";
+
+            document.getElementById("loginPage").style.display = "block";
+
+            document.getElementById("secretCode").value = "";
+
+        }
+
+
+        // Check whether user is already authenticated
+        window.onload = function () {
+
+            if (sessionStorage.getItem("authenticated") === "true") {
+
+                document.getElementById("loginPage").style.display = "none";
+
+                document.getElementById("contentPage").style.display = "block";
+
+            }
+
+        };
+
+
+        // Allow pressing ENTER to submit the code
+        document.getElementById("secretCode").addEventListener("keypress", function(event) {
+
+            if (event.key === "Enter") {
+                checkCode();
+            }
+
+        });
+
+    </script>
 
 </body>
-    
 </html>
