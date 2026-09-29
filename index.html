@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,172 +8,338 @@
     <title>Study Materials</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: #080808;
+            color: white;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             padding: 20px;
         }
 
-        /* ================= LOGIN BOX ================= */
+        /* ================= LOGIN PAGE ================= */
 
         #loginPage {
             width: 100%;
             max-width: 420px;
-            background: white;
+
+            background: #111111;
+
             padding: 40px 30px;
+
             border-radius: 20px;
+
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-        }
 
-        #loginPage h1 {
-            color: #333;
-            margin-bottom: 10px;
-        }
+            border: 1px solid #292929;
 
-        #loginPage p {
-            color: #777;
-            margin-bottom: 25px;
+            box-shadow:
+                0 0 30px rgba(0, 255, 170, 0.08),
+                0 20px 50px rgba(0, 0, 0, 0.6);
         }
 
         .lock-icon {
             font-size: 55px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
+
+        #loginPage h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+
+            background: linear-gradient(
+                90deg,
+                #00ffaa,
+                #00c8ff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #loginPage p {
+            color: #888;
+            margin-bottom: 25px;
+        }
+
+        /* INPUT */
 
         #secretCode {
             width: 100%;
+
             padding: 14px;
-            border: 2px solid #ddd;
+
+            background: #080808;
+
+            border: 1px solid #333;
+
             border-radius: 10px;
+
             outline: none;
+
+            color: white;
+
             font-size: 16px;
+
             margin-bottom: 15px;
+
             transition: 0.3s;
         }
 
         #secretCode:focus {
-            border-color: #667eea;
+            border-color: #00ffaa;
+
+            box-shadow:
+                0 0 10px rgba(0, 255, 170, 0.2);
         }
+
+        /* BUTTON */
 
         #loginBtn {
             width: 100%;
+
             padding: 14px;
+
             border: none;
+
             border-radius: 10px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+
+            background: linear-gradient(
+                135deg,
+                #00ffaa,
+                #00aaff
+            );
+
+            color: #000;
+
             font-size: 16px;
+
             font-weight: bold;
+
             cursor: pointer;
+
             transition: 0.3s;
         }
 
         #loginBtn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+
+            box-shadow:
+                0 0 25px rgba(0, 255, 170, 0.3);
         }
 
+        /* ERROR */
+
         #errorMessage {
-            color: #e53935;
+            color: #ff4d4d;
+
             margin-top: 15px;
+
             display: none;
+
             font-size: 14px;
         }
+
 
         /* ================= CONTENT PAGE ================= */
 
         #contentPage {
             display: none;
+
             width: 100%;
-            max-width: 900px;
+
+            max-width: 1000px;
         }
 
         .container {
-            background: white;
-            padding: 35px;
+            background: #111111;
+
+            padding: 40px;
+
             border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+            border: 1px solid #292929;
+
+            box-shadow:
+                0 0 40px rgba(0, 255, 170, 0.05),
+                0 20px 60px rgba(0, 0, 0, 0.7);
         }
+
+
+        /* HEADER */
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
+
+            margin-bottom: 35px;
         }
 
         .header h1 {
-            color: #333;
-            margin-bottom: 8px;
+            font-size: 34px;
+
+            margin-bottom: 10px;
+
+            background: linear-gradient(
+                90deg,
+                #00ffaa,
+                #00c8ff
+            );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
         }
 
         .header p {
             color: #777;
+
+            font-size: 15px;
         }
 
-        /* ================= PDF CARDS ================= */
+
+        /* ================= MANUAL CARDS ================= */
 
         .manual-list {
+
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 16px;
         }
+
 
         .manual {
+
             text-decoration: none;
-            background: #f7f7ff;
-            border: 1px solid #e5e5ff;
-            padding: 18px;
+
+            background: #181818;
+
+            border: 1px solid #292929;
+
+            padding: 20px;
+
             border-radius: 12px;
-            color: #333;
+
+            color: #ddd;
+
             font-weight: bold;
+
             display: flex;
+
             align-items: center;
-            gap: 12px;
-            transition: 0.3s;
+
+            gap: 14px;
+
+            transition: all 0.3s ease;
         }
+
 
         .manual:hover {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+            background: #1c2926;
+
+            border-color: #00ffaa;
+
+            color: #ffffff;
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 0 20px rgba(0, 255, 170, 0.12);
         }
 
+
         .pdf-icon {
-            font-size: 25px;
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background: #222;
+
+            font-size: 22px;
         }
+
 
         /* ================= LOGOUT ================= */
 
         #logoutBtn {
+
             display: block;
+
             margin: 30px auto 0;
-            padding: 10px 25px;
-            border: none;
+
+            padding: 11px 25px;
+
+            border: 1px solid #ff4444;
+
             border-radius: 8px;
-            background: #e53935;
-            color: white;
+
+            background: transparent;
+
+            color: #ff5555;
+
             cursor: pointer;
+
             font-weight: bold;
+
+            transition: 0.3s;
         }
 
+
         #logoutBtn:hover {
-            background: #c62828;
+
+            background: #ff4444;
+
+            color: white;
+
+            box-shadow:
+                0 0 20px rgba(255, 68, 68, 0.2);
         }
+
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #555;
+
+            font-size: 13px;
+        }
+
 
         /* ================= MOBILE ================= */
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
+
+            body {
+                padding: 12px;
+            }
 
             #loginPage {
                 padding: 30px 20px;
@@ -183,23 +350,36 @@
             }
 
             .header h1 {
-                font-size: 25px;
+                font-size: 27px;
+            }
+
+            .manual-list {
+                grid-template-columns: 1fr;
             }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- ================= SECRET CODE PAGE ================= -->
+
+    <!-- ================= LOGIN PAGE ================= -->
 
     <div id="loginPage">
 
-        <div class="lock-icon">🔐</div>
+        <div class="lock-icon">
+            🔐
+        </div>
 
         <h1>Private Access</h1>
 
-        <p>Enter the secret code to access the study materials.</p>
+        <p>
+            Enter the secret code to access the manuals.
+        </p>
+
 
         <input
             type="password"
@@ -207,15 +387,21 @@
             placeholder="Enter secret code"
         >
 
-        <button id="loginBtn" onclick="checkCode()">
-            Access Materials
+
+        <button
+            id="loginBtn"
+            onclick="checkCode()"
+        >
+            Unlock Materials
         </button>
 
+
         <p id="errorMessage">
-            ❌ Incorrect secret code. Try again.
+            ❌ Wrong code! Try again.
         </p>
 
     </div>
+
 
 
     <!-- ================= CONTENT PAGE ================= -->
@@ -224,92 +410,173 @@
 
         <div class="container">
 
+
             <div class="header">
-                <h1>📚 Study Materials</h1>
-                <p>Access your lab manuals and study resources</p>
+
+                <h1>
+                    📚 Study Materials
+                </h1>
+
+                <p>
+                    Your collection of lab manuals and study resources
+                </p>
+
             </div>
+
 
 
             <div class="manual-list">
 
-                <a class="manual" href="DSA_lab_manual[1].pdf" download>
+
+                <a
+                    class="manual"
+                    href="DSA_lab_manual[1].pdf"
+                    download
+                >
                     <span class="pdf-icon">📕</span>
                     DSA Manual
                 </a>
 
-                <a class="manual" href="ACS302_Cloud_Lab_Manual.pdf" download>
-                    <span class="pdf-icon">📕</span>
+
+                <a
+                    class="manual"
+                    href="ACS302_Cloud_Lab_Manual.pdf"
+                    download
+                >
+                    <span class="pdf-icon">☁️</span>
                     Cloud Computing Manual
                 </a>
 
-                <a class="manual" href="cnlab.pdf" download>
-                    <span class="pdf-icon">📕</span>
+
+                <a
+                    class="manual"
+                    href="cnlab.pdf"
+                    download
+                >
+                    <span class="pdf-icon">🌐</span>
                     Computer Networks Manual
                 </a>
 
-                <a class="manual" href="uiuxlab.pdf" download>
-                    <span class="pdf-icon">📕</span>
+
+                <a
+                    class="manual"
+                    href="uiuxlab.pdf"
+                    download
+                >
+                    <span class="pdf-icon">🎨</span>
                     UI/UX Manual
                 </a>
 
-                <a class="manual" href="smmlab.pdf" download>
-                    <span class="pdf-icon">📕</span>
+
+                <a
+                    class="manual"
+                    href="smmlab.pdf"
+                    download
+                >
+                    <span class="pdf-icon">📱</span>
                     SMM Manual
                 </a>
 
-                <a class="manual" href="cyber.pdf" download>
-                    <span class="pdf-icon">📕</span>
+
+                <a
+                    class="manual"
+                    href="cyber.pdf"
+                    download
+                >
+                    <span class="pdf-icon">🔐</span>
                     Cyber Security Manual
                 </a>
 
-                <a class="manual" href="smm.pdf" download>
-                    <span class="pdf-icon">📕</span>
+
+                <a
+                    class="manual"
+                    href="smm.pdf"
+                    download
+                >
+                    <span class="pdf-icon">📄</span>
                     SMM Short Notes
                 </a>
 
-                <a class="manual" href="AAI302-ML LAB.pdf" download>
-                    <span class="pdf-icon">📕</span>
+
+                <a
+                    class="manual"
+                    href="AAI302-ML LAB.pdf"
+                    download
+                >
+                    <span class="pdf-icon">🤖</span>
                     Machine Learning Manual
                 </a>
 
-                <a class="manual" href="SEO_MANUAL.pdf" download>
-                    <span class="pdf-icon">📕</span>
+
+                <a
+                    class="manual"
+                    href="SEO_MANUAL.pdf"
+                    download
+                >
+                    <span class="pdf-icon">🔎</span>
                     SEO Manual
                 </a>
 
-                <a class="manual" href="AIT301 -CNS LAB RECORD REVISED..pdf" download>
-                    <span class="pdf-icon">📕</span>
+
+                <a
+                    class="manual"
+                    href="AIT301 -CNS LAB RECORD REVISED..pdf"
+                    download
+                >
+                    <span class="pdf-icon">🛡️</span>
                     CNS Manual
                 </a>
 
-                <a class="manual" href="PDD LAB MANUAL FINAL.pdf" download>
-                    <span class="pdf-icon">📕</span>
+
+                <a
+                    class="manual"
+                    href="PDD LAB MANUAL FINAL.pdf"
+                    download
+                >
+                    <span class="pdf-icon">📘</span>
                     PDD Manual
                 </a>
 
-                <a class="manual" href="SEO  LAB MANUAL THIRD YEAR-1.pdf" download>
-                    <span class="pdf-icon">📕</span>
+
+                <a
+                    class="manual"
+                    href="SEO  LAB MANUAL THIRD YEAR-1.pdf"
+                    download
+                >
+                    <span class="pdf-icon">📚</span>
                     SEO 1 Manual
                 </a>
+
 
             </div>
 
 
-            <button id="logoutBtn" onclick="logout()">
+            <button
+                id="logoutBtn"
+                onclick="logout()"
+            >
                 🔒 Lock Page
             </button>
+
+
+            <div class="footer">
+                
+            </div>
+
 
         </div>
 
     </div>
 
 
+
     <!-- ================= JAVASCRIPT ================= -->
 
     <script>
 
-        // CHANGE YOUR SECRET CODE HERE
-        const SECRET_CODE = "manualkudra";
+        // SECRET CODE
+
+        const SECRET_CODE = "iamironman";
 
 
         function checkCode() {
@@ -320,64 +587,93 @@
             const errorMessage =
                 document.getElementById("errorMessage");
 
+
             if (enteredCode === SECRET_CODE) {
 
-                // Hide login page
-                document.getElementById("loginPage").style.display = "none";
+                document.getElementById("loginPage")
+                    .style.display = "none";
 
-                // Show content
-                document.getElementById("contentPage").style.display = "block";
+                document.getElementById("contentPage")
+                    .style.display = "block";
 
-                // Save login status
-                sessionStorage.setItem("authenticated", "true");
+
+                sessionStorage.setItem(
+                    "authenticated",
+                    "true"
+                );
+
 
             } else {
 
                 errorMessage.style.display = "block";
 
-                document.getElementById("secretCode").value = "";
+                document.getElementById("secretCode")
+                    .value = "";
 
             }
+
         }
 
 
         function logout() {
 
-            sessionStorage.removeItem("authenticated");
+            sessionStorage.removeItem(
+                "authenticated"
+            );
 
-            document.getElementById("contentPage").style.display = "none";
 
-            document.getElementById("loginPage").style.display = "block";
+            document.getElementById("contentPage")
+                .style.display = "none";
 
-            document.getElementById("secretCode").value = "";
+
+            document.getElementById("loginPage")
+                .style.display = "block";
+
+
+            document.getElementById("secretCode")
+                .value = "";
 
         }
 
 
-        // Check whether user is already authenticated
         window.onload = function () {
 
-            if (sessionStorage.getItem("authenticated") === "true") {
+            if (
+                sessionStorage.getItem(
+                    "authenticated"
+                ) === "true"
+            ) {
 
-                document.getElementById("loginPage").style.display = "none";
+                document.getElementById("loginPage")
+                    .style.display = "none";
 
-                document.getElementById("contentPage").style.display = "block";
+                document.getElementById("contentPage")
+                    .style.display = "block";
 
             }
 
         };
 
 
-        // Allow pressing ENTER to submit the code
-        document.getElementById("secretCode").addEventListener("keypress", function(event) {
+        // ENTER KEY SUPPORT
 
-            if (event.key === "Enter") {
-                checkCode();
-            }
+        document
+            .getElementById("secretCode")
+            .addEventListener(
+                "keypress",
+                function(event) {
 
-        });
+                    if (event.key === "Enter") {
+
+                        checkCode();
+
+                    }
+
+                }
+            );
 
     </script>
 
 </body>
+
 </html>
